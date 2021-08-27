@@ -4,7 +4,7 @@ on:
     types: [opened, edited, reopened, synchronize]
 
 jobs:
-  pr-lint:
+  pr-test:
     runs-on: ubuntu-latest
 
     steps:
