@@ -4,9 +4,9 @@ on:
     types: [opened, edited, reopened, synchronize]
 
 jobs:
-  unit-test:
-    runs-on: ubuntu-latest
 
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -22,6 +22,8 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-      
+      - name: lint
+        run: docker build --target lint .
+        
       - name: test
         run: docker build --target test .
