@@ -42,9 +42,9 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-example-ui:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-example-ui:${{ github.sha }}
       - uses: azure/k8s-set-context@v1
-      with:
-        method: kubeconfig
-        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
       - name: Deploy the app
         run: |
           cd kustomize/overlays/production
