@@ -52,4 +52,3 @@ jobs:
           kustomize build | kubectl apply --filename -
           kubectl --namespace production rollout status deployment devops-example-ui
  
-      
