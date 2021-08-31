@@ -38,11 +38,11 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-example-ui:pr-${{ github.event.pull_request.number }}
       
       - name: Create a cluster
-        uses: AbsaOSS/k3d-action@v1.4.0
+        uses: AbsaOSS/k3d-action@v1.5.0
         with:
           cluster-name: test
           args: >-
-            --config k3d.yaml
+            --config=k3d.yaml
       - name: Deploy the app
         run: |
           cd kustomize/overlays/preview
